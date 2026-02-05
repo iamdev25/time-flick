@@ -1,7 +1,38 @@
-# Tauri + Vue + TypeScript
+# Time Flick
 
-This template should help get you started developing with Vue 3 and TypeScript in Vite. The template uses Vue 3 `<script setup>` SFCs, check out the [script setup docs](https://v3.vuejs.org/api/sfc-script-setup.html#sfc-script-setup) to learn more.
+A modern, desktop time tracking application built with Tauri, Vue 3, and Rust.
 
-## Recommended IDE Setup
+## Tech Stack
 
-- [VS Code](https://code.visualstudio.com/) + [Vue - Official](https://marketplace.visualstudio.com/items?itemName=Vue.volar) + [Tauri](https://marketplace.visualstudio.com/items?itemName=tauri-apps.tauri-vscode) + [rust-analyzer](https://marketplace.visualstudio.com/items?itemName=rust-lang.rust-analyzer)
+- **Frontend**: Vue 3 (Composition API), TypeScript, Tailwind CSS
+- **Backend**: Tauri (Rust)
+- **State**: In-memory Rust state (Timer), LocalStorage (Logs)
+
+## Features
+
+- **Timer**: Start, Pause, Resume, Stop. Logic runs in Rust backend.
+- **Dashboard**: Real-time updates, Session history.
+- **Persistence**: Logs are saved to local storage. Timer state persists while app is running (even if minimized).
+
+## Setup
+
+1. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+2. Run in development mode:
+   ```bash
+   npm run tauri dev
+   ```
+
+3. Build for production:
+   ```bash
+   npm run tauri build
+   ```
+
+## Structure
+
+- `src-tauri/src/lib.rs`: Rust backend logic (Timer state, Commands).
+- `src/views/Dashboard.vue`: Main UI, interacts with Rust backend.
+- `src/components/`: Reusable UI components (Sidebar, TopBar).
